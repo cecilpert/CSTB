@@ -20,6 +20,7 @@ def args_gestion():
     parser.add_argument("-file", metavar="<str>",
                         help="The fasta file to parse",
                         required=True)
+    parser.add_argument("name", metavar="<str>", help="Name of the organism", required=True)
     parser.add_argument("-out", metaver="<str>",
                         help="The output file",
                         required=True)
@@ -116,7 +117,7 @@ def construct_in(fasta_file, pickle_file, org_name, pam="NGG", non_pam_motif_len
 
 if __name__ == '__main__':
     PARAM = args_gestion()
-    construct_in(PARAM.file, PARAM.out, PARAM.pam, PARAM.sl)
+    construct_in(PARAM.file, PARAM.out, PARAM.name, PARAM.pam, PARAM.sl)
 
     # filin = "../../test/reference_genomes/fasta/GCF_001022195.1_ASM102219v1/GCF_001022195.1_ASM102219v1_genomic.fna"
     # filout = "../../test/reference_genomes/test"
