@@ -89,13 +89,13 @@ def find_sgrna_seq(seq_list, len_seq, reverse, str_reverse, seq_dict, genome_seq
     return seq_dict
 
 
-def construct_in(fasta_file, pickle_file, pam="NGG", non_pam_motif_length=20):
+def construct_in(fasta_file, pickle_file, org_name, pam="NGG", non_pam_motif_length=20):
     """
     Construct the sequences for first organism,
     with python regular expression research
     """
     sgrna = "N" * non_pam_motif_length + pam
-    organism = ".".join(os.path.basename(fasta_file).split(".")[0:-1])
+    organism = org_name
     seq_dict = {}
 
     for genome_seqrecord in SeqIO.parse(fasta_file, "fasta"):
